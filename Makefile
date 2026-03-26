@@ -1,13 +1,23 @@
-all: movie
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall
 
-movie: main.o movie.o
-	g++ -o movie main.o movie.o
+TARGET = app
+OBJS = main.o movie.o user.o rating.o
 
-main.o: main.cpp
-	g++ -c main.cpp
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
-movie.o: movie.cpp
-	g++ -c movie.cpp
+main.o: main.cpp movie.h user.h rating.h
+	$(CXX) $(CXXFLAGS) -c main.cpp
+
+movie.o: movie.cpp movie.h
+	$(CXX) $(CXXFLAGS) -c movie.cpp
+
+user.o: user.cpp user.h
+	$(CXX) $(CXXFLAGS) -c user.cpp
+
+rating.o: rating.cpp rating.h
+	$(CXX) $(CXXFLAGS) -c rating.cpp
 
 clean:
-	rm -f *.o movieS
+	rm -f *.o $(TARGET)
