@@ -28,6 +28,8 @@ void MovieManager::searchByTitle(const std::string& title) const {
 }
 
 void MovieManager::sortByRating() {
-    std::sort(movies.begin(), movies.end());
+    std::sort(movies.begin(), movies.end(), [](const Movie& a, const Movie& b) {
+        return a.getAverageRating() > b.getAverageRating(); // 높은 평점순
+    });
     printAll();
 }
