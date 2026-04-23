@@ -23,14 +23,29 @@ double Movie::getAverageRating() const {
     return totalRating / ratingCount;
 }
 
-void Movie::display() const {
-    cout << id << ". " << title
-         << " (" << year << ") ["
-         << genre << "] 평점: "
-         << getAverageRating() << endl;
-}
 
 int Movie::getId() const { return id; }
 string Movie::getTitle() const { return title; }
 string Movie::getGenre() const { return genre; }
 int Movie::getYear() const { return year; }
+
+bool Movie::operator<(const Movie& other) const {
+    return this->title < other.title;
+}
+
+bool Movie::operator==(const Movie& other) const {
+    return this->id == other.id;
+}
+
+
+ostream& operator<<(ostream& os, const Movie& m) {
+    os << "ID: " << m.id
+       << " | 제목: " << m.title
+       << " | 장르: " << m.genre
+       << " | 연도: " << m.year
+       << " | 평점: " << m.getAverageRating();
+    return os;
+}
+void Movie::display() const {
+    cout << *this << endl;
+}
