@@ -12,4 +12,6 @@ public:
     void printAll() const;
     void searchByTitle(const std::string& title) const;
     void sortByRating();
+    void saveToFile(const std::string& filename) const;
+    void loadFromFile(const std::string& filename);
 };

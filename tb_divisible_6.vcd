@@ -1,0 +1,162 @@
+$date
+	Mon May  4 14:01:15 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_divisible_6 $end
+$var wire 1 ! out $end
+$var reg 4 " a [3:0] $end
+$var integer 32 # i [31:0] $end
+$scope module uut $end
+$var wire 4 $ a [3:0] $end
+$var wire 1 ! out $end
+$var wire 1 % d3 $end
+$var wire 1 & d2 $end
+$scope module u1 $end
+$var wire 4 ' a [3:0] $end
+$var wire 1 & out $end
+$upscope $end
+$scope module u2 $end
+$var wire 4 ( a [3:0] $end
+$var wire 1 % out $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 (
+b0 '
+1&
+1%
+b0 $
+b0 #
+b0 "
+1!
+$end
+#50000
+0!
+0&
+0%
+b1 "
+b1 $
+b1 '
+b1 (
+b1 #
+#100000
+1&
+b10 "
+b10 $
+b10 '
+b10 (
+b10 #
+#150000
+0&
+1%
+b11 "
+b11 $
+b11 '
+b11 (
+b11 #
+#200000
+1&
+0%
+b100 "
+b100 $
+b100 '
+b100 (
+b100 #
+#250000
+0&
+b101 "
+b101 $
+b101 '
+b101 (
+b101 #
+#300000
+1!
+1&
+1%
+b110 "
+b110 $
+b110 '
+b110 (
+b110 #
+#350000
+0!
+0&
+0%
+b111 "
+b111 $
+b111 '
+b111 (
+b111 #
+#400000
+1&
+b1000 "
+b1000 $
+b1000 '
+b1000 (
+b1000 #
+#450000
+0&
+1%
+b1001 "
+b1001 $
+b1001 '
+b1001 (
+b1001 #
+#500000
+1&
+0%
+b1010 "
+b1010 $
+b1010 '
+b1010 (
+b1010 #
+#550000
+0&
+b1011 "
+b1011 $
+b1011 '
+b1011 (
+b1011 #
+#600000
+1!
+1&
+1%
+b1100 "
+b1100 $
+b1100 '
+b1100 (
+b1100 #
+#650000
+0!
+0&
+0%
+b1101 "
+b1101 $
+b1101 '
+b1101 (
+b1101 #
+#700000
+1&
+b1110 "
+b1110 $
+b1110 '
+b1110 (
+b1110 #
+#750000
+0&
+1%
+b1111 "
+b1111 $
+b1111 '
+b1111 (
+b1111 #
+#800000
+b10000 #

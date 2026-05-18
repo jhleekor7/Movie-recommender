@@ -1,0 +1,50 @@
+$date
+	Mon May  4 12:26:30 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_half_adder $end
+$var wire 1 ! sum $end
+$var wire 1 " carry $end
+$var reg 1 # a $end
+$var reg 1 $ b $end
+$scope module uut $end
+$var wire 1 # x $end
+$var wire 1 $ y $end
+$var wire 1 ! s $end
+$var wire 1 " c $end
+$scope module and1 $end
+$var wire 1 # a $end
+$var wire 1 $ b $end
+$var reg 1 " a_and_b $end
+$upscope $end
+$scope module xor1 $end
+$var wire 1 # a $end
+$var wire 1 $ b $end
+$var reg 1 ! a_xor_b $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0$
+0#
+0"
+0!
+$end
+#100000
+1!
+1$
+#200000
+0$
+1#
+#300000
+1"
+0!
+1$
+#400000
