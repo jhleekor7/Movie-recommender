@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 
 #include "movie.h"
 #include "user.h"
@@ -60,11 +61,16 @@ int main() {
             cout << "ID: ";
             cin >> id;
 
+            cin.ignore(
+                numeric_limits<streamsize>::max(),
+                '\n'
+            );
+
             cout << "제목: ";
-            cin >> title;
+            getline(cin, title);
 
             cout << "장르: ";
-            cin >> genre;
+            getline(cin, genre);
 
             cout << "연도: ";
             cin >> year;
@@ -80,8 +86,13 @@ int main() {
 
             string title;
 
+            cin.ignore(
+                numeric_limits<streamsize>::max(),
+                '\n'
+            );
+
             cout << "검색할 제목: ";
-            cin >> title;
+            getline(cin, title);
 
             movieMgr.searchByTitle(title);
         }
@@ -134,8 +145,13 @@ int main() {
             cout << "학번: ";
             cin >> studentId;
 
+            cin.ignore(
+                numeric_limits<streamsize>::max(),
+                '\n'
+            );
+
             cout << "영화 제목: ";
-            cin >> movieTitle;
+            getline(cin, movieTitle);
 
             cout << "점수 (1~5): ";
             cin >> score;
@@ -151,8 +167,13 @@ int main() {
 
             string movieTitle;
 
+            cin.ignore(
+                numeric_limits<streamsize>::max(),
+                '\n'
+            );
+
             cout << "영화 제목: ";
-            cin >> movieTitle;
+            getline(cin, movieTitle);
 
             ratingMgr.printByMovie(movieTitle);
         }
