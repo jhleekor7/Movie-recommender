@@ -50,13 +50,19 @@ int main() {
         cin >> choice;
 
         if (choice == 0) {
+
             break;
         }
 
+        // 영화 추가
+
         if (choice == 1) {
 
-            int id, year;
-            string title, genre;
+            int id;
+            int year;
+
+            string title;
+            string genre;
 
             cout << "ID: ";
             cin >> id;
@@ -72,15 +78,34 @@ int main() {
             cout << "장르: ";
             getline(cin, genre);
 
+            // CSV 파싱 충돌 방지
+            // 콤마 → 슬래시 치환
+
+            for (char& c : genre) {
+
+                if (c == ',') {
+
+                    c = '/';
+                }
+            }
+
             cout << "연도: ";
             cin >> year;
 
             movieMgr.addMovie(
-                Movie(id, title, genre, year)
+                Movie(
+                    id,
+                    title,
+                    genre,
+                    year
+                )
             );
 
-            cout << "영화가 추가되었습니다.\n";
+            cout
+                << "영화가 추가되었습니다.\n";
         }
+
+        // 제목 검색
 
         else if (choice == 2) {
 
@@ -92,24 +117,34 @@ int main() {
             );
 
             cout << "검색할 제목: ";
+
             getline(cin, title);
 
             movieMgr.searchByTitle(title);
         }
+
+        // 전체 출력
 
         else if (choice == 3) {
 
             movieMgr.printAll();
         }
 
+        // 평점순 정렬 출력
+
         else if (choice == 4) {
 
             movieMgr.sortByRating();
         }
 
+        // 사용자 추가
+
         else if (choice == 5) {
 
-            string school, name, email;
+            string school;
+            string name;
+            string email;
+
             int studentId;
 
             cout << "학교: ";
@@ -125,21 +160,33 @@ int main() {
             cin >> email;
 
             userMgr.addUser(
-                User(school, name, studentId, email)
+                User(
+                    school,
+                    name,
+                    studentId,
+                    email
+                )
             );
 
-            cout << "사용자가 추가되었습니다.\n";
+            cout
+                << "사용자가 추가되었습니다.\n";
         }
+
+        // 사용자 목록 출력
 
         else if (choice == 6) {
 
             userMgr.printAll();
         }
 
+        // 평점 입력
+
         else if (choice == 7) {
 
             int studentId;
+
             string movieTitle;
+
             double score;
 
             cout << "학번: ";
@@ -151,17 +198,49 @@ int main() {
             );
 
             cout << "영화 제목: ";
+
             getline(cin, movieTitle);
+
+            // CSV 파싱 충돌 방지
+            // 콤마 → 슬래시 치환
+
+            for (char& c : movieTitle) {
+
+                if (c == ',') {
+
+                    c = '/';
+                }
+            }
 
             cout << "점수 (1~5): ";
             cin >> score;
 
+            // 점수 범위 검증
+
+            if (
+                score < 1.0
+                || score > 5.0
+            ) {
+
+                cout
+                    << "점수는 1~5 사이여야 합니다.\n";
+
+                continue;
+            }
+
             ratingMgr.addRating(
-                Rating(studentId, movieTitle, score)
+                Rating(
+                    studentId,
+                    movieTitle,
+                    score
+                )
             );
 
-            cout << "평점이 입력되었습니다.\n";
+            cout
+                << "평점이 입력되었습니다.\n";
         }
+
+        // 영화별 평점 보기
 
         else if (choice == 8) {
 
@@ -173,10 +252,15 @@ int main() {
             );
 
             cout << "영화 제목: ";
+
             getline(cin, movieTitle);
 
-            ratingMgr.printByMovie(movieTitle);
+            ratingMgr.printByMovie(
+                movieTitle
+            );
         }
+
+        // 영화 추천
 
         else if (choice == 9) {
 
@@ -185,18 +269,22 @@ int main() {
             cout << "사용자 학번: ";
             cin >> userId;
 
-            recommender.recommendMovies(userId);
+            recommender.recommendMovies(
+                userId
+            );
         }
 
         else {
 
-            cout << "잘못된 입력입니다.\n";
+            cout
+                << "잘못된 입력입니다.\n";
         }
     }
 
     movieMgr.saveToFile("movies.csv");
 
-    cout << "프로그램을 종료합니다.\n";
+    cout
+        << "프로그램을 종료합니다.\n";
 
     return 0;
 }
