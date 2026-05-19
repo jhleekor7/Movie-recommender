@@ -99,3 +99,6 @@ void MovieManager::loadFromFile(const std::string& filename) {
 
     inFile.close();
 }
+int MovieManager::size() const {
+    return movies.size();
+}

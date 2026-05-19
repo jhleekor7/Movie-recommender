@@ -69,3 +69,12 @@ std::vector<Rating> RatingManager::getRatingsByUser(int studentId) const {
 std::vector<Rating> RatingManager::getAllRatings() const {
     return ratings;
 }
+void RatingManager::loadFromFile(const std::string& filename) {
+}
+
+void RatingManager::saveToFile(const std::string& filename) const {
+}
+
+int RatingManager::size() const {
+    return ratings.size();
+}
